@@ -25,14 +25,24 @@ Size:
 
 Add all appropriate shipping fees.
 
-## Notes:
+## Debugging Suggestions:
 
-Remember, take small steps.  Get one thing working, commit, and move to the next.
+Remember, take small steps.  Get one thing working, commit, and move to the next.  Don't be afraid to comment out some code. If you need to, replace it with a simple hard-coded value for a little while.
 
 If something looks overwhelming, break it down.  Look at one function at a time.  Each function has its own responsibility.
 
 
 You do not need to change any code in the app.shoppingCart.render() function.  
+
+### Suggested progression:
+
+1. Inspect app.ShoppingCart.  What properties and methods does it have?  What is their responsibility?
+- Get the unordered "items" list to work.
+- Simplify.  Comment out some items in app.initialize to get a simple example.
+- Get each function to work without errors.
+- Calculate the correct Subtotal.
+- Calculate the Shipping.
+- Calculate the Total Cost.
 
 
 ## Done?
