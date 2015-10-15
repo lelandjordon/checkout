@@ -9,7 +9,7 @@ Correct the errors and get us back on track.
 1. Fork & Clone in ~/wdi/exercises.
 - Change to the "checkout" dir.
 - Open index.html
-- Fix scripts/shopping_cart.js
+- Fix scripts/shopping_cart.js (and only shopping_cart.js)
 
 ## Shipping Fees:
 
@@ -56,9 +56,9 @@ Name: Raspberry Pi | Price: $35.50
 Name: Trampoline | Price: $339.50
 Name: Tesla X1 | Price: $79,900.00
 
-Subtotal:   $395.00
-Shipping:    $55.00
-Total cost: $450.00
+Subtotal:   $80,295.00
+Shipping:    $2,615.00
+Total cost: $82,910.00
 ```
 
 ## Bonus
