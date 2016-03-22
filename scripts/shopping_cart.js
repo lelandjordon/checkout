@@ -40,7 +40,7 @@ app.shoppingCart = {
   },
 
   totalCost: function() {
-    return this.subtotal + this.total_shipping();
+    return subtotal + total_shipping();
   },
 
   totalShipping: function() {
