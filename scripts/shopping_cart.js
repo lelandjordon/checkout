@@ -53,7 +53,8 @@ app.shoppingCart = {
     var self = this; // do not change. This line is needed for call to calculateShipping below
     this.items = (function(item){
       shipping = shipping + self.calculateShipping();
-    })
+    });
+    console.log("Shipping cost is " + shipping);
     return shipping;
   },
 
