@@ -25,6 +25,16 @@ app.shoppingCart = {
     }
 
     switch(items.size){
+      // Had to look up the solution for this.  I assumed
+      // switch(items.size) would ignore sizes other than "large"
+      // and "ludicrous" and wouldn't create a problem.  But, it's
+      // here to make sure the product listings are correct... right?
+      case "small":
+        shipping += 0;
+        break;
+      case "medium":
+        shipping += 0;
+        break;
       case "large":
         shipping += 50;
         break;
@@ -32,8 +42,9 @@ app.shoppingCart = {
         shipping += 2550;
         break;
       default:
-      //  throw(new Error("Unsupported size: " + items.size));
+        //throw(new Error("Unsupported size: " + items.size));
       // ^^^ This kept saying items.size was undefined, hence the comment-out.
+      // Update: got it fixed.
     }
     shipping;
   },
