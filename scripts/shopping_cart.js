@@ -1,13 +1,14 @@
 // add shopping cart to app, then add methods to shopping cart
 app.shoppingCart = {
   initialize: function(){
-    console.log("Initializing shoppingCart ");
+    console.log('Initializing shoppingCart ');
     // start with an empty Array of items
     this.items = {};
   },
 
-  add_item: function(name, price){
-    this.items.push([ name: name, cost: cost, weight: weight, size: size ]);
+  addItem: function(name, cost, weight, size){
+    console.log("activate addItem function");
+    this.items = ({ name: name, cost: cost, weight: weight, size: size });
   },
 
   calculateShipping: function(item){
@@ -16,7 +17,7 @@ app.shoppingCart = {
     if(weight < 50){
       shipping += 5;
     } else {
-      shipping += 10
+      shipping += 10;
     }
 
     switch(item.size){
@@ -33,13 +34,15 @@ app.shoppingCart = {
   },
 
   subtotal: function(){
+    console.log("activate subtotal funciton");
     this.items.forEach(function(item){
       cost = cost + item.cost;
-    })
+    });
     return cost;
   },
 
   totalCost: function() {
+    console.log("activate totalCost function")
     return subtotal + total_shipping();
   },
 
