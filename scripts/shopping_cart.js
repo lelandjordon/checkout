@@ -6,9 +6,9 @@ app.shoppingCart = {
     this.items = [];
   },
 
-  addItem: function(name, price, weight, size){
+  addItem: function(name, cost, weight, size){
     console.log("activate addItem function");
-    this.items.push({ name: name, price: price, weight: weight, size: size });
+    this.items.push({ name: name, cost: cost, weight: weight, size: size });
   },
 
   calculateShipping: function(item){
@@ -51,11 +51,11 @@ app.shoppingCart = {
 
   subtotal: function(){
     console.log("activate subtotal function");
-    var cost = 0.0;
+    var sub = 0.00;
     this.items.forEach(function(item){
-      cost = cost + item.price;
+      sub = sub + item.cost;
     });
-    return cost;
+    return sub;
   },
 
   totalCost: function() {
