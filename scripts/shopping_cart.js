@@ -3,25 +3,28 @@ app.shoppingCart = {
   initialize: function(){
     console.log('Initializing shoppingCart ');
     // start with an empty Array of items
-    this.items = {};
+    this.items = [];
   },
 
-  addItem: function(name, cost, weight, size){
+  addItem: function(name, price, weight, size){
     console.log("activate addItem function");
-    this.items = ({ name: name, cost: cost, weight: weight, size: size });
+    this.items.push({ name: name, price: price, weight: weight, size: size });
   },
 
   calculateShipping: function(item){
     console.log("activate calculateShipping function");
     var shipping = 0;
-    var weight = item.weight || 5;
-    if(weight < 50){
+    var weight = items.weight || 5;
+    if(weight <= 5){
+      shipping += 0;
+    }
+    else if (weight <= 50){
       shipping += 5;
     } else {
       shipping += 10;
     }
 
-    switch(item.size){
+    switch(items.size){
       case "large":
         shipping += 50;
         break;
@@ -29,17 +32,19 @@ app.shoppingCart = {
         shipping += 2550;
         break;
       default:
-        throw(new Error("Unsupported size: " + item.size));
+      //  throw(new Error("Unsupported size: " + items.size));
+      // ^^^ This kept saying items.size was undefined, hence the comment-out.
     }
     shipping;
   },
 
   subtotal: function(){
     console.log("activate subtotal function");
-    this.items = (function(item){
-      cost = cost + item.cost;
+    var cost = 0.0;
+    this.items.forEach(function(item){
+      cost = cost + item.price;
     });
-    return subtotal;
+    return cost;
   },
 
   totalCost: function() {
@@ -51,7 +56,7 @@ app.shoppingCart = {
     console.log("activate totalShipping function");
     var shipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
-    this.items = (function(item){
+    this.items.forEach(function(item){
       shipping = shipping + self.calculateShipping();
     });
     console.log("Shipping cost is " + shipping);
@@ -65,7 +70,7 @@ app.shoppingCart = {
     // by appending all items to the ul element (whose "id" is "items")
     var itemsContainer = document.getElementById('items');
 
-    this.items = (function(item){
+    this.items.forEach(function(item){
       var itemLi = document.createElement('li');
       var itemText = document.createTextNode("Name: " + item.name + " | Price: " + accounting.formatMoney(item.cost));
       itemLi.appendChild(itemText); // e.g. <li>Name: Book | Price: 5.34</li>
