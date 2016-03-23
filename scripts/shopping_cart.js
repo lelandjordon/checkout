@@ -12,6 +12,7 @@ app.shoppingCart = {
   },
 
   calculateShipping: function(item){
+    console.log("activate calculateShipping function");
     var shipping = 0;
     var weight = item.weight || 5;
     if(weight < 50){
@@ -34,7 +35,7 @@ app.shoppingCart = {
   },
 
   subtotal: function(){
-    console.log("activate subtotal funciton");
+    console.log("activate subtotal function");
     this.items.forEach(function(item){
       cost = cost + item.cost;
     });
@@ -42,11 +43,12 @@ app.shoppingCart = {
   },
 
   totalCost: function() {
-    console.log("activate totalCost function")
+    console.log("activate totalCost function");
     return subtotal + total_shipping();
   },
 
   totalShipping: function() {
+    console.log("activate totalShipping function");
     var shipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
     this.items.forEach(function(item){
@@ -62,7 +64,7 @@ app.shoppingCart = {
     // by appending all items to the ul element (whose "id" is "items")
     var itemsContainer = document.getElementById('items');
 
-    this.items.forEach(function(item){
+    this.items = (function(item){
       var itemLi = document.createElement('li');
       var itemText = document.createTextNode("Name: " + item.name + " | Price: " + accounting.formatMoney(item.cost));
       itemLi.appendChild(itemText); // e.g. <li>Name: Book | Price: 5.34</li>
