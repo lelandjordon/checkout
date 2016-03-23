@@ -49,7 +49,7 @@ app.shoppingCart = {
 
   totalCost: function() {
     console.log("activate totalCost function");
-    return subtotal + totalShipping();
+    return this.subtotal() + this.totalShipping();
   },
 
   totalShipping: function() {
