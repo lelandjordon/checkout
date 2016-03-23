@@ -36,22 +36,22 @@ app.shoppingCart = {
 
   subtotal: function(){
     console.log("activate subtotal function");
-    this.items.forEach(function(item){
+    this.items = (function(item){
       cost = cost + item.cost;
     });
-    return cost;
+    return subtotal;
   },
 
   totalCost: function() {
     console.log("activate totalCost function");
-    return subtotal + total_shipping();
+    return subtotal + totalShipping();
   },
 
   totalShipping: function() {
     console.log("activate totalShipping function");
     var shipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
-    this.items.forEach(function(item){
+    this.items = (function(item){
       shipping = shipping + self.calculateShipping();
     })
     return shipping;
