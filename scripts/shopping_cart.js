@@ -49,7 +49,7 @@ app.shoppingCart = {
   totalShipping: function() {
     var shipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
-    this.items.for_each(function(item){
+    this.items.forEach(function(item){
       shipping = shipping + self.calculateShipping();
     })
     return shipping;
