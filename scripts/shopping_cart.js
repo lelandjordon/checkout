@@ -6,9 +6,9 @@ app.shoppingCart = {
     this.items = [];
   },
 
-  addItem: function(name, cost, weight, size){
+  addItem: function(name, cost, weight, size, kind){
     console.log("activate addItem function");
-    this.items.push({ name: name, cost: cost, weight: weight, size: size });
+    this.items.push({ name: name, cost: cost, weight: weight, size: size, kind: kind });
   },
 
   calculateShipping: function(item){
@@ -46,7 +46,7 @@ app.shoppingCart = {
       // ^^^ This kept saying items.size was undefined, hence the comment-out.
       // Update: got it fixed.
     }
-    shipping;
+    return shipping;
   },
 
   subtotal: function(){
@@ -54,6 +54,7 @@ app.shoppingCart = {
     var sub = 0.00;
     this.items.forEach(function(item){
       sub = sub + item.cost;
+      console.log(sub);
     });
     return sub;
   },
@@ -65,13 +66,13 @@ app.shoppingCart = {
 
   totalShipping: function() {
     console.log("activate totalShipping function");
-    var shipping = 100.00;
+    var totShipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
-    this.items.forEach(function(item){
-      shipping = shipping + self.calculateShipping();
+    self.items.forEach(function(item){
+      totShipping = totShipping + self.calculateShipping();
     });
-    console.log("Shipping cost is " + shipping);
-    return shipping;
+    console.log(totShipping);
+    return totShipping;
   },
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
