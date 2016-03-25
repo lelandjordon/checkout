@@ -14,7 +14,7 @@ app.shoppingCart = {
   calculateShipping: function(item){
     console.log("activate calculateShipping function");
     var shipping = 0;
-    var weight = items.weight || 5;
+    var weight = item.weight;
     if(weight <= 5){
       shipping += 0;
     }
@@ -24,7 +24,7 @@ app.shoppingCart = {
       shipping += 10;
     }
 
-    switch(items.size){
+    switch(item.size){
       // Had to look up the solution for this.  I assumed
       // switch(items.size) would ignore sizes other than "large"
       // and "ludicrous" and wouldn't create a problem.  But, it's
@@ -42,7 +42,7 @@ app.shoppingCart = {
         shipping += 2550;
         break;
       default:
-        //throw(new Error("Unsupported size: " + items.size));
+        throw(new Error("Unsupported size: " + items.size));
       // ^^^ This kept saying items.size was undefined, hence the comment-out.
       // Update: got it fixed.
     }
@@ -69,8 +69,8 @@ app.shoppingCart = {
     var totShipping = 100.00;
     var self = this; // do not change. This line is needed for call to calculateShipping below
     self.items.forEach(function(item){
-      totShipping = totShipping + self.calculateShipping();
-    });
+      totShipping = totShipping + self.calculateShipping(item);
+    })
     console.log(totShipping);
     return totShipping;
   },
